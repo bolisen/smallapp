@@ -14,11 +14,6 @@ class Base extends Controller
     public function _initialize()
     {
         parent::_initialize();
-        //后台静态信息
-        $html['img'] = '../../static/admin/img';
-        $html['css']= '../../static/admin/css';
-        $html['js'] = '../../static/admin/js';
-
 
         $user_id = session("user_id");
         if(!$user_id){
@@ -33,8 +28,6 @@ class Base extends Controller
                 ->find();
         }
 
-        $this->assign("user",$user);
-        $this->assign("html",$html);
         $this->assign('module',Request::instance()->module());
         $this->assign('controller',Request::instance()->controller());
         $this->assign('action',Request::instance()->action());
